@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+source="./SWE_2021_41_2023_2_week_4-main/SWE_2021_41_2023_2_week_4-main/files"
+destination="./SWE_2021_41_2023_2_week_4-main/SWE_2021_41_2023_2_week_4-main"
+
+
+for file in "${source}"/*; do
+    if [ -f "$file" ]; then
+        
+        first_letter=$(basename "$file" | cut -c1)
+        
+        
+        mkdir -p "${destination}/${first_letter}"
+        
+        
+        mv "$file" "${destination}/${first_letter}/"
+    fi
+done
